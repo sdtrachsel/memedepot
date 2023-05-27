@@ -1,0 +1,31 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  /* border: green 1px solid; */
+  width: 25vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.nav-link {
+  color: #fc6c04;
+  border-bottom: #fc6c04 1px solid;
+  text-decoration: none;
+  padding: 3px;
+}
+
+.nav-link.unselected {
+  color: black;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.logo {
+  width: 10vw;
+  height: auto;
+  min-width: 50px;
+}
