@@ -1,4 +1,24 @@
+.image-container{
+  padding-top: 5%;
+}
+
 .button-image{
-  height: 100px;
-  width: auto;
+  height: auto;
+  width: 31vw;
+}
+
+@media screen and (max-width: 60em) {
+  
+  .button-image{
+    height: auto;
+    width: 45vw;
+  }
+}
+
+@media screen and (max-width: 27em) {
+  
+  .button-image{
+    height: auto;
+    width: 80vw;
+  }
 }
