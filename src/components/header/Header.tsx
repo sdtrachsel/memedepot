@@ -1,16 +1,18 @@
-import React from 'react'
+import React from "react";
 import './Header.css'
+import logo from '../../assets/meme_depot_logo.png'
+import { NavLink } from 'react-router-dom'
 
-type GreetProps = {
-	name: string
+const Header = () => {
+  return (
+    <header>
+      <img src={logo} alt="Meme Depot Logo" className="logo" />
+      <nav>
+        <NavLink exact to="/" className={isActive => "nav-link" + (!isActive? ' unselected': "")} > Home </NavLink>
+        <NavLink exact to="/savedmemes" className={isActive => "nav-link" + (!isActive? " unselected": "")}> Saved Memes </NavLink>
+      </nav>
+    </header>
+  )
 }
 
-const Header = (props: GreetProps) => {
-	return(
-		<div>
-			<h1>Wad up, wadup {props.name}</h1>
-		</div>
-	)
-}
-
-export default Header
+export default Header;
