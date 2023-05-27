@@ -1,13 +1,13 @@
 import React from 'react'
 import './Images.css'
 import Image from '../image/Image'
-import memeImages from '../../meme_image_data'
+import memeImages, { MemeImage } from '../../meme_image_data'
 
 
 const Images: React.FC = () => {
-	const memeButtons = memeImages.map(image => <Image  key={image.id} id={image.id} path={image.path} alt={image.alt}/>)
-	
-	return(
+	const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => <Image key={image.id} id={image.id} path={image.path} alt={image.alt} />)
+
+	return (
 		<div className="image-container">
 			{memeButtons}
 		</div>

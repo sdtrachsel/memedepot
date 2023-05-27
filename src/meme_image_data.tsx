@@ -1,4 +1,10 @@
-const memeImages = [
+type MemeImage = {
+  id: string;
+  path: string;
+  alt: string;
+};
+
+const memeImages: MemeImage[] = [
   { id: '1', path: 'https://i.imgur.com/6AgsAtM.png', alt: 'Ron Swanson "I regret nothing. The end."' },
   { id: '2', path: 'https://i.imgur.com/K7GEeyl.png', alt: 'Dissappointed Dad' },
   { id: '3', path: 'https://i.imgur.com/xXjWb89.png', alt: 'Joe Exotic "I\'m never gonna financially recover from this."' },
@@ -21,3 +27,4 @@ const memeImages = [
 ];
 
 export default memeImages;
+export type { MemeImage };
