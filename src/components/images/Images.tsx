@@ -7,57 +7,45 @@ import memeImages, { MemeImage } from '../../meme_image_data'
 // types
 type ImagesState = {
 	selectedImage: string;
+	selectedToggle: boolean;
 }
 
+// component
 class Images extends React.Component<{},ImagesState> {
 	constructor(props: {})	{
 	super(props)
 	this.state = {
-		selectedImage: ""
+		selectedImage: "",
+		selectedToggle: false
 		}
 	}
 
+	// methods
+	selectImage = (event: React.MouseEvent<HTMLImageElement>) =>	{
+		this.setState({ selectedImage: event.currentTarget.src  })
+	}
+
+	// component render
 	render = ()	=>	{
-		const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => <Image key={image.id} id={image.id} path={image.path} alt={image.alt} />)
+		const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => (
+			<Image
+				key={image.id}
+				id={image.id}
+				path={image.path}
+				alt={image.alt}
+				// onClick={(event: React.MouseEvent<HTMLImageElement>):void => this.selectImage(event)}
+			/>
+		));
 
 		return (
 			<div className="image-container">
-				<Form />
+				<Form selectedImage={this.state.selectedImage}/>
 				{memeButtons}
 			</div>
 		)
 	}
 }
 
+
 export default Images;
 
-// // types 
-// type AppState = {
-//   selectedImage: string
-// }
-// interface FormProps {
-//   selectedImage: string
-// }
-
-// class App extends React.Component<{}, AppState> {
-//   constructor(props: {}) {
-//     super(props)
-//     this.state = {
-//       selectedImage: ""
-//     }
-//   }
-
-//   render = (FormProps) =>  {
-//     return (
-//       <div className="App">
-//         <Header />
-//         <Form selectedImage={FormProps}/>
-//         <Route exact path="/" component={Images} />
-//         <Route exact path="/savedmemes" render={() => <SavedMemes />} />
-//       </div>
-//     );
-//   }
-// }
-
-
-//if meme button is clicked, render </Form>

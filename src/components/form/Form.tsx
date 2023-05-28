@@ -15,14 +15,18 @@ type FormState = {
 	selectedJoke: string;
 }
 
+type FormProps = {
+	selectedImage: string
+}
+
 // component 
-class Form extends React.Component<{},FormState> {
-	constructor(props: {})	{
+class Form extends React.Component<FormProps, FormState> {
+	constructor(props: FormProps)	{
 		super(props)
 		this.state = {
 			jokes: [],
 			error: "",
-			selectedImage: "",
+			selectedImage: this.props.selectedImage,
 			selectedJoke: "",
 		}
 	}
@@ -48,12 +52,6 @@ class Form extends React.Component<{},FormState> {
 	}
 
 // methods
-	selectImage	= (image: string)	=>	{
-		this.setState({ selectedImage: image }, () => {
-			console.log(this.state.selectedImage);
-		});
-	}
-
 	selectJoke = (joke: string) => {
 		this.setState({ selectedJoke: joke }, () => {
 			console.log(this.state.selectedJoke);
@@ -62,6 +60,7 @@ class Form extends React.Component<{},FormState> {
 
 	saveMeme = ()	=>	{
 		const newMeme: object = {
+			id: Date.now(),
 			image: this.state.selectedImage,
 			joke: this.state.selectedJoke
 		}
@@ -76,6 +75,7 @@ class Form extends React.Component<{},FormState> {
 
 // component render
 	render = ()	=>	{
+		console.log(this.state.selectedImage)
 		const { jokes } = this.state;
     const options: JSX.Element[] = jokes.map((joke, index) => {
       return (<React.Fragment key={index + 1}>
@@ -99,7 +99,7 @@ class Form extends React.Component<{},FormState> {
 
     return (
 			<div className="generator-container">
-				{/* <Meme savedMeme={this.saveMeme()}/> */}
+				{/* <Meme savedMeme={this.saveMeme()} /> */}
 				<Meme />
 				<form className="form-container">
 					<h4 className="joke-option-header">Choose Your Joke</h4>
@@ -113,7 +113,6 @@ class Form extends React.Component<{},FormState> {
     );
   }
 }
-
 
 export default Form
 
