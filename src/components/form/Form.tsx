@@ -2,21 +2,30 @@
 import './Form.css'
 import React from 'react'
 import Meme from '../meme/Meme';
+import Image from '../image/Image';
+
 
 // types
 type Joke = {
-	joke: string
+	joke: string;
+}
+
+type SavedMeme = {
+	image: string;
+	joke: string;
+	id: string;
 }
 
 type FormState = {
-	jokes: Joke[];
-	error: string;
-	selectedImage: string;
-	selectedJoke: string;
+  jokes: Joke[];
+  error: string;
+  selectedImage: string;
+  selectedJoke: string;
+  savedMeme: SavedMeme; 
 }
 
 type FormProps = {
-	selectedImage: string
+	selectedImage: string;
 }
 
 // component 
@@ -26,8 +35,9 @@ class Form extends React.Component<FormProps, FormState> {
 		this.state = {
 			jokes: [],
 			error: "",
-			selectedImage: this.props.selectedImage,
+			selectedImage: "",
 			selectedJoke: "",
+			savedMeme: { image: "", joke: "", id: ""}
 		}
 	}
 
@@ -59,13 +69,13 @@ class Form extends React.Component<FormProps, FormState> {
 	}
 
 	saveMeme = ()	=>	{
-		const newMeme: object = {
-			id: Date.now(),
+		const newMeme: SavedMeme = {
 			image: this.state.selectedImage,
-			joke: this.state.selectedJoke
+			joke: this.state.selectedJoke,
+			id: `${Date.now()}`
 		}
+		this.setState({ savedMeme: newMeme })
 		this.clearInputs();
-		return newMeme;
 	}
 
 	clearInputs	=	()	=>	{
@@ -75,10 +85,10 @@ class Form extends React.Component<FormProps, FormState> {
 
 // component render
 	render = ()	=>	{
-		console.log(this.state.selectedImage)
+		console.log(Image)
 		const { jokes } = this.state;
     const options: JSX.Element[] = jokes.map((joke, index) => {
-      return (<React.Fragment key={index + 1}>
+      return (
 				<div className="joke-option-wrapper">
 					<input
 						type="radio"
@@ -90,7 +100,7 @@ class Form extends React.Component<FormProps, FormState> {
 					/>
 					<label htmlFor={`joke${index + 1}`} id={`joke${index + 1}`} className="joke-option"> {joke.joke} </label>
 				</div>
-      </React.Fragment>)
+			)
     })
 
     if (jokes.length < 0) {
@@ -99,8 +109,10 @@ class Form extends React.Component<FormProps, FormState> {
 
     return (
 			<div className="generator-container">
-				{/* <Meme savedMeme={this.saveMeme()} /> */}
-				<Meme />
+				<Meme 
+					selectedJoke={this.state.selectedJoke} 
+					selectedImage={this.state.selectedImage}
+				/>
 				<form className="form-container">
 					<h4 className="joke-option-header">Choose Your Joke</h4>
 					{options}

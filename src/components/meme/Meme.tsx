@@ -1,26 +1,20 @@
 import React from 'react';
 import './Meme.css';
 
-type SavedMeme = {
-	id: number;
-  image: string;
-  joke: string;
-}
-
+// types
 type MemeProps = {
-  savedMeme?: SavedMeme;
+  selectedJoke: string;
+  selectedImage: string;
 }
 
-const Meme: React.FC<MemeProps> = ({ savedMeme }: MemeProps) => {
-  if (!savedMeme) {
-    return <div>You haven't created any memes, yet. When you do, they'll show up here. </div>
-  }
-
+// component 
+const Meme: React.FC<MemeProps> = (MemeProps) => {
+  console.log(MemeProps.selectedJoke)
   return (
     <div className="meme-placeholder">
-      <h4 className="joke"> joke will go here</h4>
+      <h4 className="joke"> {MemeProps.selectedJoke} </h4>
       <div className="image-placeholder">
-        <img src={savedMeme.image} alt="Meme" />
+      {/* <img src={SELECTED IMAGE PATH GOES HERE} alt="User-generated meme" /> */}
       </div>
     </div>
   );
