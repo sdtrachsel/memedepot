@@ -13,7 +13,7 @@ type MemeProps = {
 
 const Meme: React.FC<MemeProps> = ({ savedMeme }: MemeProps) => {
   if (!savedMeme) {
-    return <div>No meme saved.</div>
+    return <div>You haven't created any memes, yet. When you do, they'll show up here. </div>
   }
 
   return (
