@@ -1,0 +1,23 @@
+.meme-placeholder   {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
+  width: 50vw;
+  /* border: 5px limegreen solid; */
+}
+
+.joke-placeholder {
+  height: 10%;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  /* border: 5px orange solid; */
+}
+
+.image-placeholder  {
+  height: 75%;
+  width: 90%;
+  margin: 5%;
+  background-color: black;
+  /* border: 5px yellow solid; */
+}

@@ -13,16 +13,16 @@ const memeImages: MemeImage[] = [
   { id: '6', path: 'https://i.imgur.com/kbjqp1Y.png', alt: 'Dad and racoon drinking beers together.' },
   { id: '7', path: 'https://i.imgur.com/2sI6yDu.png', alt: 'Dad on couch staring at ceiling with tv remote in hand.' },
   { id: '8', path: 'https://i.imgur.com/vO6SFsN.png', alt: 'Danny Tanner smirking and pointing.' },
-  { id: '9', path: 'https://i.imgur.com/hp9h6l2.png', alt: 'Dad standing wathing news but looking thoughtful.' },
+  { id: '9', path: 'https://i.imgur.com/hp9h6l2.png', alt: 'Dad standing watching news but looking thoughtful.' },
   { id: '10', path: 'https://i.imgur.com/vomb8yO.png', alt: 'Dad throwing child in air very, very high.' },
   { id: '11', path: 'https://i.imgur.com/jcAAwgd.png', alt: 'Chief Hopper running so fast he is blurred.' },
   { id: '12', path: 'https://i.imgur.com/BhQdGNQ.png', alt: 'Happy dad grilling.' },
   { id: '13', path: 'https://i.imgur.com/ZafGQDO.png', alt: 'Tim "The Tool Man" Taylor posing with a hammer.' },
   { id: '14', path: 'https://i.imgur.com/T8eHLkJ.png', alt: 'Dad in aviator with cool dog in sunglasses.' },
   { id: '15', path: 'https://i.imgur.com/be00a0C.png', alt: 'Early 90s dad with sweet shades grilling.' },
-  { id: '16', path: 'https://i.imgur.com/zvteKmu.png', alt: 'Two dadds golfing.' },
-  { id: '17', path: 'https://i.imgur.com/q7B4LSz.png', alt: 'Dad mowing wiht a tornado in the background.' },
-  { id: '18', path: 'https://i.imgur.com/I3uXcLR.png', alt: 'Hank Hill "Why would anyone do drucks when they could just mow a lown?"' },
+  { id: '16', path: 'https://i.imgur.com/zvteKmu.png', alt: 'Two dads golfing.' },
+  { id: '17', path: 'https://i.imgur.com/q7B4LSz.png', alt: 'Dad mowing with a tornado in the background.' },
+  { id: '18', path: 'https://i.imgur.com/I3uXcLR.png', alt: 'Hank Hill "Why would anyone do drugs when they could just mow a lown?"' },
   { id: '19', path: 'https://i.imgur.com/JjzYBO5.png', alt: 'Bob Belcher giving solid advice to Tina.' }
 ];
 
