@@ -1,21 +1,26 @@
-.meme-placeholder   {
+.meme-placeholder {
+  border: black 1px solid;
+  margin: 1%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 70vh;
+  height: 95%;
   width: 50vw;
 }
 
-.image-placeholder  {
+.image-placeholder {
   height: 75%;
   width: 90%;
   margin: 5%;
 }
 
-.meme-joke{
+.meme-joke {
   margin: 3%;
 }
-.meme-image{
-  width: 100%;
+
+.meme-image {
+  align-self: center;
+  width: 95%;
   height: auto;
+  margin-bottom: 2%;
 }
