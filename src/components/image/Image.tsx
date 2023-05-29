@@ -3,12 +3,12 @@ import "./Image.css";
 import { MemeImage } from "../../meme_image_data";
 
 // types
-type ImageState = {
+interface ImageState {
   selectedToggle: boolean;
   selectedImage: string;
 };
 
-type ImageProps = {
+interface ImageProps {
   id: string;
   path: string;
   alt:string;
@@ -25,18 +25,6 @@ class Image extends React.Component<ImageProps, ImageState> {
     };
   }
 
-  // selectImage = (event: React.MouseEvent<HTMLElement>) => {
-      
-  //     const imageElement = event.target as HTMLImageElement;
-  //     const currentSrc = imageElement.currentSrc;
-  //     this.setState({ selectedImage: currentSrc });
-    
-  //   // const imageElement = event.currentTarget as HTMLImageElement;
-  //   // const imageSRC = imageElement.src;
-  //   // this.setState({ selectedImage: imageSRC, selectedToggle: true });
-  // };
-
-  // component render
   render = () => {
     const { id, path, alt } = this.props;
     return (

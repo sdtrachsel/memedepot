@@ -2,21 +2,20 @@
 import './Form.css'
 import React from 'react'
 import Meme from '../meme/Meme';
+import getJokes from '../../apiCalls';
 import Image from '../image/Image';
 
-
 // types
-type Joke = {
+interface Joke {
 	joke: string;
 }
 
-type SavedMeme = {
+interface SavedMeme extends Joke{
 	image: string;
-	joke: string;
 	id: string;
 }
 
-type FormState = {
+interface FormState {
   jokes: Joke[];
   error: string;
   selectedImage: string;
@@ -24,7 +23,7 @@ type FormState = {
   savedMeme: SavedMeme; 
 }
 
-type FormProps = {
+interface FormProps {
 	selectedImage: string;
 }
 
@@ -35,7 +34,7 @@ class Form extends React.Component<FormProps, FormState> {
 		this.state = {
 			jokes: [],
 			error: "",
-			selectedImage: "",
+			selectedImage: this.props.selectedImage,
 			selectedJoke: "",
 			savedMeme: { image: "", joke: "", id: ""}
 		}
@@ -43,29 +42,22 @@ class Form extends React.Component<FormProps, FormState> {
 
 // lifecycle methods 
 	componentDidMount = ()	=>	{
-		fetch("https://api.api-ninjas.com/v1/dadjokes?limit=3", {
-			method: 'GET',
-			headers: {'X-Api-Key': 'C/1Bummp5MFkEZYvGxfhOQ==0XCoAUNJSOQoFpuv'}
-		})
-		.then((response) => {
-			if(!response.ok) {
-				throw new Error(`${response.status}`);
-			} else {
-				return response.json();
-			}
-		})
-		.then((data) => {
-			const jokes: Joke[] = data.map((joke: Joke) => joke);
-			this.setState({ jokes: jokes });
-		})
-		.catch((error) => this.setState({ error: error.message }));
+		this.getJokeOptions()
 	}
 
 // methods
 	selectJoke = (joke: string) => {
 		this.setState({ selectedJoke: joke }, () => {
-			console.log(this.state.selectedJoke);
 		});
+	}
+
+	getJokeOptions = () =>{
+		getJokes()
+		.then((data) => {
+			const jokes: Joke[] = data.map((joke: Joke) => joke);
+			this.setState({ jokes: jokes });
+		})
+		.catch((error) => this.setState({ error: error.message }));
 	}
 
 	saveMeme = ()	=>	{
@@ -85,11 +77,11 @@ class Form extends React.Component<FormProps, FormState> {
 
 // component render
 	render = ()	=>	{
-		console.log(Image)
-		const { jokes } = this.state;
+		const { jokes, selectedImage, selectedJoke } = this.state;
+
     const options: JSX.Element[] = jokes.map((joke, index) => {
       return (
-				<div className="joke-option-wrapper">
+				<div key={index + 1}className="joke-option-wrapper">
 					<input
 						type="radio"
 						id={`joke${index + 1}`}
@@ -110,17 +102,18 @@ class Form extends React.Component<FormProps, FormState> {
     return (
 			<div className="generator-container">
 				<Meme 
-					selectedJoke={this.state.selectedJoke} 
-					selectedImage={this.state.selectedImage}
+					selectedJoke={selectedJoke} 
+					selectedImage={selectedImage}
 				/>
 				<form className="form-container">
+					<button>X</button>
 					<h4 className="joke-option-header">Choose Your Joke</h4>
 					{options}
+      	</form>
 					<div className="button-wrapper">
-						<button className="button" onClick={this.componentDidMount}>get new jokes</button>
+						<button className="button" onClick={this.getJokeOptions}>get new jokes</button>
 						<button className="button" onClick={this.saveMeme}>save meme</button>
 					</div>
-      	</form>
 			</div>
     );
   }

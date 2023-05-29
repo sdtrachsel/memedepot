@@ -2,20 +2,19 @@ import React from 'react';
 import './Meme.css';
 
 // types
-type MemeProps = {
+interface MemeProps {
   selectedJoke: string;
   selectedImage: string;
 }
 
 // component 
-const Meme: React.FC<MemeProps> = (MemeProps) => {
-  console.log(MemeProps.selectedJoke)
+const Meme: React.FC<MemeProps> = (props) => {
+  const { selectedJoke, selectedImage } = props;
+
   return (
     <div className="meme-placeholder">
-      <h4 className="joke"> {MemeProps.selectedJoke} </h4>
-      <div className="image-placeholder">
-      {/* <img src={SELECTED IMAGE PATH GOES HERE} alt="User-generated meme" /> */}
-      </div>
+      <h4 className="meme-joke"> {selectedJoke} </h4>
+      <img className="meme-image" src={selectedImage} alt="User-generated meme" />
     </div>
   );
 }
