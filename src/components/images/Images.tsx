@@ -3,14 +3,19 @@ import Form from '../form/Form'
 import './Images.css'
 import Image from '../image/Image'
 import memeImages, { MemeImage } from '../../meme_image_data'
+import { SavedMeme } from '../form/Form'
 
-type ImagesState = {
+interface ImagesState  {
 	selectedToggle: boolean;
 	selectedImage: string;
 };
 
-class Images extends React.Component<{}, ImagesState>{
-	constructor(props: {}) {
+interface ImageProps {
+	saveNewMeme:(newMeme: SavedMeme) => void;
+}
+
+class Images extends React.Component<ImageProps, ImagesState>{
+	constructor(props:ImageProps) {
 		super(props)
 		this.state = {
 			selectedToggle: false,
@@ -27,27 +32,24 @@ class Images extends React.Component<{}, ImagesState>{
 		});
 };
 
+	closeForm =() => {
+		this.setState({selectedToggle: false, selectedImage: ''})
+	}
+
 	render(): React.ReactNode {
 		const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => <Image key={image.id} id={image.id} path={image.path} alt={image.alt} selectImage={this.selectImage} />)
 
 		return (
 			<div className="image-container">
-				{this.state.selectedImage? <Form selectedImage={this.state.selectedImage}/> : memeButtons}			
+				{this.state.selectedToggle? <Form 
+																				selectedImage={this.state.selectedImage} 
+																				saveNewMeme={this.props.saveNewMeme}
+																				closeForm={this.closeForm}
+																				/> 
+																		: memeButtons}			
 			</div>
 		)
 	}
 }
 
-
 export default Images;
-
-// const Images: React.FC = () => {
-// 	const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => <Image key={image.id} id={image.id} path={image.path} alt={image.alt} />)
-
-// 	return (
-// 		<div className="image-container">
-// 			{memeButtons}
-// 		</div>
-// 	)
-// }
-

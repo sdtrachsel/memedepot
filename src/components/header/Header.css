@@ -4,7 +4,6 @@ header {
 }
 
 nav {
-  /* border: green 1px solid; */
   width: 25vw;
   display: flex;
   justify-content: space-between;

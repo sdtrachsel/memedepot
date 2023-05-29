@@ -4,6 +4,7 @@ import React from 'react'
 import Meme from '../meme/Meme';
 import getJokes from '../../apiCalls';
 import Image from '../image/Image';
+import { type } from 'os';
 
 // types
 interface Joke {
@@ -13,6 +14,7 @@ interface Joke {
 interface SavedMeme extends Joke {
 	image: string;
 	id: string;
+	favorite: boolean;
 }
 
 interface FormState {
@@ -20,11 +22,12 @@ interface FormState {
 	error: string;
 	selectedImage: string;
 	selectedJoke: string;
-	savedMeme: SavedMeme;
 }
 
 interface FormProps {
 	selectedImage: string;
+	saveNewMeme: (newMeme: SavedMeme) => void;
+	closeForm: () => void;
 }
 
 // component 
@@ -36,7 +39,6 @@ class Form extends React.Component<FormProps, FormState> {
 			error: "",
 			selectedImage: this.props.selectedImage,
 			selectedJoke: "",
-			savedMeme: { image: "", joke: "", id: "" }
 		}
 	}
 
@@ -64,10 +66,12 @@ class Form extends React.Component<FormProps, FormState> {
 		const newMeme: SavedMeme = {
 			image: this.state.selectedImage,
 			joke: this.state.selectedJoke,
-			id: `${Date.now()}`
+			id: `${Date.now()}`,
+			favorite: false
 		}
-		this.setState({ savedMeme: newMeme })
+		this.props.saveNewMeme(newMeme)
 		this.clearInputs();
+		this.props.closeForm();
 	}
 
 	clearInputs = () => {
@@ -88,6 +92,7 @@ class Form extends React.Component<FormProps, FormState> {
 						className="joke-option-button"
 						name="joke-option"
 						value={joke.joke}
+						required
 						onChange={(event) => this.selectJoke(event.target.value)}
 					/>
 					<label htmlFor={`joke${index + 1}`} id={`joke${index + 1}`} className="joke-option"> {joke.joke} </label>
@@ -107,7 +112,7 @@ class Form extends React.Component<FormProps, FormState> {
 					selectedImage={selectedImage}
 				/>
 				<div className="form-wrapper">
-						<button className="close-button">X</button>
+					<button className="close-button" onClick={this.props.closeForm}>X</button>
 					<form className="form-container">
 						<h4 className="joke-option-header">Choose Your Joke</h4>
 						{options}
@@ -122,6 +127,5 @@ class Form extends React.Component<FormProps, FormState> {
 	}
 }
 
-export default Form
-
-
+export default Form;
+export type { SavedMeme };
