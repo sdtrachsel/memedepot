@@ -1,7 +1,7 @@
 import React from "react";
 import './Header.css'
 import logo from '../../assets/meme_depot_logo.png'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header: React.FC = () => {
   return (

@@ -1,12 +1,22 @@
-import React from 'react'
-import './Meme.css'
+import React from 'react';
+import './Meme.css';
 
-const Meme = () => {
-	return(
-		<div>
-
-		</div>
-	)
+// types
+interface MemeProps {
+  selectedJoke: string;
+  selectedImage: string;
 }
 
-export default Meme
+// component 
+const Meme: React.FC<MemeProps> = (props) => {
+  const { selectedJoke, selectedImage } = props;
+
+  return (
+    <div className="meme-placeholder">
+      <h4 className="meme-joke"> {selectedJoke} </h4>
+      <img className="meme-image" src={selectedImage} alt="User-generated meme" />
+    </div>
+  );
+}
+
+export default Meme;
