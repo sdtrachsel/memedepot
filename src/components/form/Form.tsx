@@ -63,15 +63,19 @@ class Form extends React.Component<FormProps, FormState> {
 	}
 
 	saveMeme = () => {
-		const newMeme: SavedMeme = {
-			image: this.state.selectedImage,
-			joke: this.state.selectedJoke,
-			id: `${Date.now()}`,
-			favorite: false
+		if (this.state.selectedJoke)	{
+			const newMeme: SavedMeme = {
+				image: this.state.selectedImage,
+				joke: this.state.selectedJoke,
+				id: `${Date.now()}`,
+				favorite: false
+			}
+			this.props.saveNewMeme(newMeme)
+			this.clearInputs();
+			this.props.closeForm();
+		} else {
+			window.alert("Please select a joke before saving.")
 		}
-		this.props.saveNewMeme(newMeme)
-		this.clearInputs();
-		this.props.closeForm();
 	}
 
 	clearInputs = () => {
