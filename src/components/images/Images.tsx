@@ -22,7 +22,7 @@ class Images extends React.Component<ImageProps, ImagesState>{
 			selectedImage: ''
 		}
 	}
-	
+
 	selectImage = (event: React.MouseEvent<HTMLImageElement>) => {
 		const imageElement = event.target as HTMLImageElement;
 		const currentSrc = imageElement.currentSrc;
@@ -37,16 +37,18 @@ class Images extends React.Component<ImageProps, ImagesState>{
 	}
 
 	render(): React.ReactNode {
-		const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => <Image key={image.id} id={image.id} path={image.path} alt={image.alt} selectImage={this.selectImage} />)
+		const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => (
+			<Image key={image.id} id={image.id} path={image.path} alt={image.alt} selectImage={this.selectImage} />
+		))
 
 		return (
 			<div className="image-container">
 				{this.state.selectedToggle? <Form 
-																				selectedImage={this.state.selectedImage} 
-																				saveNewMeme={this.props.saveNewMeme}
-																				closeForm={this.closeForm}
-																				/> 
-																		: memeButtons}			
+					selectedImage={this.state.selectedImage} 
+					saveNewMeme={this.props.saveNewMeme}
+					closeForm={this.closeForm}
+				/> 
+				: memeButtons}			
 			</div>
 		)
 	}
