@@ -1,6 +1,16 @@
 header {
   display: flex;
   justify-content: space-between;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  background-color: white;
+  padding-bottom: 1%;
+  border-top: solid #fc6c04;
+  border-width: 6vh;
+}
+
+header, nav {
+  background-color: white;
 }
 
 nav {
@@ -8,6 +18,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  padding-right: 5%;
+  background-color: white;
+  
 }
 
 .nav-link {
@@ -24,7 +37,26 @@ nav {
 }
 
 .logo {
-  width: 10vw;
-  height: auto;
+  width: auto;
+  height: 15vh;
   min-width: 50px;
+  padding-left: 1.2%
+}
+
+@media screen and (max-width: 60em) {
+  
+  .logo{
+    padding-left: 3%;
+  }
+}
+
+@media screen and (max-width: 27em) {
+  
+  .logo{
+    padding-left: 8%;
+  }
+
+  nav {
+    padding-right: 33%;
+  }
 }
