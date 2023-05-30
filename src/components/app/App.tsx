@@ -4,7 +4,7 @@ import Error from '../error/Error';
 import Header from '../header/Header';
 import Images from '../images/Images';
 import SavedMemes from '../savedmemes/SavedMemes';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { SavedMeme } from '../form/Form';
 
 interface AppState {
@@ -27,8 +27,11 @@ class App extends React.Component<{}, AppState>{
     return (
       <div className="App">
         <Header />
-        <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} />
-        <Route exact path="/savedmemes" render={() => <SavedMemes savedMemes={this.state.savedMemes}/>} />
+        <Switch>
+          <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} />
+          <Route exact path="/savedmemes" render={() => <SavedMemes savedMemes={this.state.savedMemes}/>} />
+          <Route exact path='*' render={() => <Error />}></Route>
+        </Switch>
       </div>
     );
   }
