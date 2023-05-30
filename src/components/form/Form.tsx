@@ -119,7 +119,7 @@ class Form extends React.Component<FormProps, FormState> {
 					<button className="close-button" onClick={this.props.closeForm}>X</button>
 					<form className="form-container">
 						<h4 className="joke-option-header">Choose Your Joke</h4>
-						{options}
+						{!this.state.error ? options : <p>Oops, something went wrong. Error: {this.state.error} jokes...</p>}
 					</form>
 					<div className="button-wrapper">
 						<button className="button" onClick={this.getJokeOptions}>get new jokes</button>
