@@ -1,10 +1,10 @@
-.image-container{
-  padding-top: 5%;
-}
+/* .image-container{
+} */
 
 .button-image{
   height: auto;
   width: 31vw;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 60em) {

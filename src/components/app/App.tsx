@@ -27,30 +27,27 @@ class App extends React.Component<{}, AppState>{
   render(): React.ReactNode {
     return (
       <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} /> 
+        <Header savedMemes={this.state.savedMemes}/>
+        <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} /> 
 
-          <Route exact path="/:id" render={( { match } ) => {
-            const memeId = match.params.id
-            const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
+        <Route exact path="/:id" render={( { match } ) => {
+          const memeId = match.params.id
+          const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
 
-            if(!findMeme) {
-              //Error page or redirect to home
-            } else {
-              return(
-                <Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image}/>
-              )
-            }
-          }} />
+          if(!findMeme) {
+            //Error page or redirect to home
+          } else {
+            return(
+              <Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image}/>
+            )
+          }
+        }} />
 
-          <Route exact path="/savedmemes" render={() => <SavedMemes savedMemes={this.state.savedMemes}/>} />
-          <Route exact path='*' render={() => <Error />}></Route>
-        </Switch>
+        <Route exact path="/savedmemes" render={() => <SavedMemes savedMemes={this.state.savedMemes}/>} />
+        
       </div>
     );
   }
-
 }
 
 export default App

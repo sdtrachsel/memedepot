@@ -23,17 +23,16 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 	displaySavedMemes = () => {
 		return this.props.savedMemes.map(meme => {
 			return (
-				<Link to={meme.id}>
-					<Meme selectedJoke={meme.joke} selectedImage={meme.image}/>
-				</Link>
-				
+				<div className="saved-container">
+					<Link to={meme.id} style={{ color: 'inherit', textDecoration: 'inherit'}}>
+						<Meme selectedJoke={meme.joke} selectedImage={meme.image}/>
+					</Link>
+				</div>
 			)
 		})
 	}
 
 	render() {
-		{console.log('Checking', this.props.savedMemes)}
-		
 		return (
 			<div>
 				<h2>Saved Memes</h2>
