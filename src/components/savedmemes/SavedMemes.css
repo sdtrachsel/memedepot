@@ -3,5 +3,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2.5%;
+  align-content: center;
+  height: fit-content;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
 }

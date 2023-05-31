@@ -31,7 +31,6 @@ class Header extends React.Component<HeaderProps, HeaderState>{
 
 //component render 
   render(): React.ReactNode {
-    console.log("IN HEADER", this.state.savedMemes)
     return  (
       <header>
       <Link to="/">

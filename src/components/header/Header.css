@@ -32,20 +32,7 @@ nav {
   background-color: white;
 }
 
-/* .nav-link {
-  color: #fc6c04;
-  border-bottom: #fc6c04 1px solid;
-  text-decoration: none;
-  padding: 3px;
-} */
-
-.nav-link.unselected {
-  color: black;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-#button, .nav-link {
+#button {
   cursor: pointer;
   border-radius: 3px;
   font-size: 13px;
