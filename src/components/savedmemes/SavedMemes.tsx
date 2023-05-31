@@ -32,8 +32,6 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 	}
 
 	render() {
-		{console.log('Checking', this.props.savedMemes)}
-		
 		return (
 			<div>
 				<h2>Saved Memes</h2>

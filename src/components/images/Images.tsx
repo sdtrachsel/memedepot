@@ -4,6 +4,7 @@ import './Images.css'
 import Image from '../image/Image'
 import memeImages, { MemeImage } from '../../meme_image_data'
 import { SavedMeme } from '../form/Form'
+import { Link } from 'react-router-dom'
 
 interface ImagesState  {
 	selectedToggle: boolean;
@@ -48,7 +49,7 @@ class Images extends React.Component<ImageProps, ImagesState>{
 					saveNewMeme={this.props.saveNewMeme}
 					closeForm={this.closeForm}
 				/> 
-				: memeButtons}			
+				: memeButtons}
 			</div>
 		)
 	}

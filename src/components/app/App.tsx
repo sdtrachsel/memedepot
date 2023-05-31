@@ -29,11 +29,9 @@ class App extends React.Component<{}, AppState>{
       <div className="App">
         <Header />
         <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} /> 
-
         <Route exact path="/:id" render={( { match } ) => {
           const memeId = match.params.id
           const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
-
           if(!findMeme) {
             //Error page or redirect to home
           } else {
@@ -42,13 +40,10 @@ class App extends React.Component<{}, AppState>{
             )
           }
         }} />
-
         <Route exact path="/savedmemes" render={() => <SavedMemes savedMemes={this.state.savedMemes}/>} />
-        
       </div>
     );
   }
-
 }
 
 export default App

@@ -60,6 +60,7 @@ class Form extends React.Component<FormProps, FormState> {
 				this.setState({ jokes: jokes });
 			})
 			.catch((error) => this.setState({ error: error.message }));
+			
 	}
 
 	saveMeme = () => {
@@ -109,17 +110,16 @@ class Form extends React.Component<FormProps, FormState> {
 		}
 
 		return (
-
 			<div className="generator-container">
 				<Meme
 					selectedJoke={selectedJoke}
 					selectedImage={selectedImage}
 				/>
-				<div className="form-wrapper">
+				<div className="form-container">
 					<button className="close-button" onClick={this.props.closeForm}>X</button>
-					<form className="form-container">
-						<h4 className="joke-option-header">Choose Your Joke</h4>
-						{options}
+					<form className="form">
+					<h4 className="joke-option-header">Choose Your Joke</h4>
+					{options}
 					</form>
 					<div className="button-wrapper">
 						<button className="button" onClick={this.getJokeOptions}>get new jokes</button>
