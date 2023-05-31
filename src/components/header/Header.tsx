@@ -37,9 +37,9 @@ class Header extends React.Component<HeaderProps, HeaderState>{
         <img src={logo} alt="Meme Depot Logo" className="logo" />
       </Link>
       <nav>
-        <NavLink exact to="/" id="button"> Home </NavLink>
+        <NavLink exact to="/" id="header-button"> Home </NavLink>
         { this.state.savedMemes.length > 0 &&
-          <NavLink exact to="/savedmemes" id="button"> Saved Memes </NavLink>
+          <NavLink exact to="/savedmemes" id="header-button"> Saved Memes </NavLink>
         }
       </nav>
     </header>
