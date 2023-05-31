@@ -17,4 +17,19 @@ describe('home page', () => {
     cy.get('.button-image').should('have.length', 19)
   })
 
+  it('first picture should be a specific image', () => {
+    cy.get('.button-image').first().and('have.attr', 'src').and('include', 'https://i.imgur.com/6AgsAtM.png')
+  })
+
+    //==> make a test to check the last image is correct as well
+   
+  it('should open meme generator', () => {
+    cy.get('.button-image').first().click().get('.generator-container')
+  })
+  // ==> change this once Route URL as been assigned to the meme generator page.
+
+  
+	
+
+
 })
