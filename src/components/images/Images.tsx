@@ -38,7 +38,6 @@ class Images extends React.Component<ImageProps, ImagesState>{
 	}
 
 	render(): React.ReactNode {
-		console.log(this.state.selectedImage)
 		const memeButtons: React.ReactNode[] = memeImages.map((image: MemeImage) => (
 			<Image key={image.id} id={image.id} path={image.path} alt={image.alt} selectImage={this.selectImage} />
 		))
