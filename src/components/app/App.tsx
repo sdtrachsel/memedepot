@@ -25,9 +25,10 @@ class App extends React.Component<{}, AppState>{
   }
 
   render(): React.ReactNode {
+    console.log("IN APP", this.state.savedMemes)
     return (
       <div className="App">
-        <Header />
+        <Header savedMemes={this.state.savedMemes}/>
         <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} /> 
         <Route exact path="/:id" render={( { match } ) => {
           const memeId = match.params.id

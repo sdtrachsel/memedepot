@@ -122,8 +122,8 @@ class Form extends React.Component<FormProps, FormState> {
 					{options}
 					</form>
 					<div className="button-wrapper">
-						<button className="button" onClick={this.getJokeOptions}>get new jokes</button>
-						<button className="button" onClick={this.saveMeme}>save meme</button>
+						<button id="button" onClick={this.getJokeOptions}>get new jokes</button>
+						<button id="button" onClick={this.saveMeme}>save meme</button>
 					</div>
 				</div>
 			</div>
