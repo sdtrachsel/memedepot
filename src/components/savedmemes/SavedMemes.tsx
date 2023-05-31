@@ -3,13 +3,14 @@ import './SavedMemes.css'
 import { SavedMeme } from '../form/Form';
 import Meme  from '../meme/Meme';
 import { Link } from 'react-router-dom';
+import Star from  '../../assets/002-star.png'
 
 interface SavedMemesState {
 	showFavorites: boolean;
 }
 
 interface SavedMemesProps {
-	savedMemes: SavedMeme[]
+	savedMemes: SavedMeme[];
 }
 
 class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
@@ -26,8 +27,18 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 				<Link to={meme.id}>
 					<Meme selectedJoke={meme.joke} selectedImage={meme.image}/>
 				</Link>
-				
 			)
+		})
+	}
+
+	displayFavoritedMemes = () => {
+			return this.props.savedMemes.map(meme => {
+			if(meme.favorite){
+				return(
+				<Link to={meme.id}>
+					<Meme selectedJoke={meme.joke} selectedImage={meme.image}/>
+				</Link>	
+			)}
 		})
 	}
 

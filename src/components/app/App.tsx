@@ -10,18 +10,24 @@ import Meme from '../meme/Meme';
 
 interface AppState {
   savedMemes: SavedMeme[]
+  favoriteMemes: SavedMeme[]
 }
 
 class App extends React.Component<{}, AppState>{
   constructor(props: {}) {
     super(props)
     this.state = {
-      savedMemes: []
+      savedMemes: [],
+      favoriteMemes: []
     }
   }
 
-  saveNewMeme = (newMeme:SavedMeme) => {
+  saveNewMeme = (newMeme: SavedMeme) => {
     this.setState({savedMemes:[...this.state.savedMemes, newMeme]})
+  }
+
+  favoriteMeme = (favorited: SavedMeme) => {
+    this.setState({favoriteMemes: [...this.state.favoriteMemes, favorited]})
   }
 
   render(): React.ReactNode {
@@ -29,7 +35,7 @@ class App extends React.Component<{}, AppState>{
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} /> 
+          <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme}  favoriteMeme={this.favoriteMeme}/>} /> 
 
           <Route exact path="/:id" render={( { match } ) => {
             const memeId = match.params.id
