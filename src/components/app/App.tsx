@@ -24,10 +24,27 @@ class App extends React.Component<{}, AppState>{
     this.setState({savedMemes:[...this.state.savedMemes, newMeme]})
   }
 
+  favoriteMeme = (memeId: string) => {
+    const {savedMemes} = this.state;
+    const updatedMemes = savedMemes.map((meme)=> {
+      if(meme.id === memeId){
+        return {
+          ...meme,
+          favorite: !meme.favorite
+        }
+      }
+      return meme;
+    })
+
+    this.setState({savedMemes: updatedMemes})
+  }
+
   render(): React.ReactNode {
     return (
       <div className="App">
+
         <Header savedMemes={this.state.savedMemes}/>
+
         <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} /> 
 
         <Route exact path="/:id" render={( { match } ) => {
@@ -43,7 +60,7 @@ class App extends React.Component<{}, AppState>{
           }
         }} />
 
-        <Route exact path="/savedmemes" render={() => <SavedMemes savedMemes={this.state.savedMemes}/>} />
+        <Route exact path="/savedmemes" render={() => <SavedMemes favoriteMeme={this.favoriteMeme} savedMemes={this.state.savedMemes}/>} />
         
       </div>
     );

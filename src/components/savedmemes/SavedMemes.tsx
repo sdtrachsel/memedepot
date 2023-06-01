@@ -1,15 +1,18 @@
 import React from 'react'
 import './SavedMemes.css'
 import { SavedMeme } from '../form/Form';
-import Meme  from '../meme/Meme';
+import Meme from '../meme/Meme';
 import { Link } from 'react-router-dom';
+import starOutline from '../../assets/favorite-outline.png'
+import starFilled from '../../assets/favorite-filled.png'
 
 interface SavedMemesState {
 	showFavorites: boolean;
 }
 
 interface SavedMemesProps {
-	savedMemes: SavedMeme[]
+	savedMemes: SavedMeme[];
+	favoriteMeme: (memeId: string) => void;
 }
 
 class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
@@ -20,23 +23,34 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 		}
 	}
 
-	displaySavedMemes = () => {
-		return this.props.savedMemes.map(meme => {
+	createMemesDisplay = (memes: SavedMeme[]): JSX.Element[] => {
+		const memesDisplay: JSX.Element[] = memes.map(meme => {
 			return (
-				<div className="saved-container">
-					<Link to={meme.id} style={{ color: 'inherit', textDecoration: 'inherit'}}>
-						<Meme selectedJoke={meme.joke} selectedImage={meme.image}/>
+
+				<div key={meme.id}>
+					<img className='fav-icon' src={meme.favorite ? starFilled : starOutline} onClick={() => this.props.favoriteMeme(meme.id)} />
+					<Link to={meme.id} >
+						<Meme key={meme.id} selectedJoke={meme.joke} selectedImage={meme.image} />
 					</Link>
 				</div>
 			)
 		})
+
+		return memesDisplay
+	}
+
+	handleViewFavorite = () => {
+		this.setState((prevState)=> ({ showFavorites: !prevState.showFavorites}))
 	}
 
 	render() {
+		const allMemes: JSX.Element[] = this.createMemesDisplay(this.props.savedMemes)
+		const favMemes: JSX.Element[] = this.createMemesDisplay(this.props.savedMemes.filter(meme => meme.favorite))
+
 		return (
 			<div>
-				<h2>Saved Memes</h2>
-				{this.displaySavedMemes()}
+				<button onClick={this.handleViewFavorite}>{this.state.showFavorites? "Show All": "Favorites"}</button>
+				{this.state.showFavorites ? favMemes : allMemes}
 			</div>
 		)
 	}
