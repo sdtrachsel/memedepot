@@ -48,7 +48,7 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 
 		return (
 			<div>
-				<button onClick={this.handleViewFavorite}>Favorities</button>
+				<button onClick={this.handleViewFavorite}>{this.state.showFavorites? "Show All": "Favorites"}</button>
 				{this.state.showFavorites ? favMemes : allMemes}
 			</div>
 		)
