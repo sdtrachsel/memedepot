@@ -1,17 +1,13 @@
-.meme-placeholder {
-  border: black 1px solid;
+.meme {
   margin: 1%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   height: 95%;
   width: 50vw;
-}
-
-.image-placeholder {
-  height: 75%;
-  width: 90%;
-  margin: 5%;
+  border-radius: 5px;
+  border: 1px #c3c3c3 solid;
+  overflow: scroll;
 }
 
 .meme-joke {
@@ -23,4 +19,16 @@
   width: 95%;
   height: auto;
   margin-bottom: 2%;
+}
+
+@media screen and (max-width: 75em) {
+  .meme-joke  {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  .meme-image {
+    font-size: 8px;
+  }
 }

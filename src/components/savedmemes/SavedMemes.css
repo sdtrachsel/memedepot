@@ -1,5 +1,11 @@
-.star {
-	margin: 2%;
-	width: 5%;
-	height: 5%
+
+.saved-container  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  height: fit-content;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
 }

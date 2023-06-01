@@ -1,7 +1,33 @@
+.instructions {
+  align-self: center;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+}
+
 .image-container{
-  margin-top: 3vh;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 2vw;
+  width: 100vw;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  padding-bottom: 3vh;
+  background-color: #ececec;
+  background: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
+}
+
+@media screen and (max-width: 75em) {
+  .instructions  {
+    font-size: 14px;
+   }
+}
+
+@media screen and (max-width: 50em) {
+ .instructions  {
+  font-size: 12px;
+ }
 }
