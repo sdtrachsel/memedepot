@@ -10,56 +10,59 @@ import Meme from '../meme/Meme';
 
 interface AppState {
   savedMemes: SavedMeme[]
-  favoriteMemes: SavedMeme[]
 }
 
 class App extends React.Component<{}, AppState>{
   constructor(props: {}) {
     super(props)
     this.state = {
-      savedMemes: [],
-      favoriteMemes: []
+      savedMemes: []
     }
   }
 
-  saveNewMeme = (newMeme: SavedMeme) => {
+  saveNewMeme = (newMeme:SavedMeme) => {
     this.setState({savedMemes:[...this.state.savedMemes, newMeme]})
   }
 
-  favoriteMeme = (id: SavedMeme) => {
-    const favorited = this.state.savedMemes.filter(meme => {
-     return meme.id === id
+  favoriteMeme = (memeId: string) => {
+    const {savedMemes} = this.state;
+    const updatedMemes = savedMemes.map((meme)=> {
+      if(meme.id === memeId){
+        return {
+          ...meme,
+          favorite: !meme.favorite
+        }
+      }
+      return meme;
     })
-    this.setState({favoriteMemes: [...this.state.favoriteMemes, favorited]})
+
+    this.setState({savedMemes: updatedMemes})
   }
 
   render(): React.ReactNode {
     return (
       <div className="App">
         <Header />
-        <Switch>
-          <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme}  favoriteMeme={this.favoriteMeme}/>} /> 
+        <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} /> 
 
-          <Route exact path="/:id" render={( { match } ) => {
-            const memeId = match.params.id
-            const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
+        <Route exact path="/:id" render={( { match } ) => {
+          const memeId = match.params.id
+          const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
 
-            if(!findMeme) {
-              //Error page or redirect to home
-            } else {
-              return(
-                <Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image}/>
-              )
-            }
-          }} />
+          if(!findMeme) {
+            //Error page or redirect to home
+          } else {
+            return(
+              <Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image}/>
+            )
+          }
+        }} />
 
-          <Route exact path="/savedmemes" render={() => <SavedMemes savedMemes={this.state.savedMemes}/>} />
-          <Route exact path='*' render={() => <Error />}></Route>
-        </Switch>
+        <Route exact path="/savedmemes" render={() => <SavedMemes favoriteMeme={this.favoriteMeme} savedMemes={this.state.savedMemes}/>} />
+        
       </div>
     );
   }
-
 }
 
 export default App

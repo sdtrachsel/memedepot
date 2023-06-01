@@ -28,7 +28,6 @@ interface FormProps {
 	selectedImage: string;
 	saveNewMeme: (newMeme: SavedMeme) => void;
 	closeForm: () => void;
-	favoriteMeme: (favorited: SavedMeme) => void
 }
 
 // component 
@@ -61,6 +60,7 @@ class Form extends React.Component<FormProps, FormState> {
 				this.setState({ jokes: jokes });
 			})
 			.catch((error) => this.setState({ error: error.message }));
+			
 	}
 
 	saveMeme = () => {
@@ -110,21 +110,20 @@ class Form extends React.Component<FormProps, FormState> {
 		}
 
 		return (
-
 			<div className="generator-container">
 				<Meme
 					selectedJoke={selectedJoke}
 					selectedImage={selectedImage}
 				/>
-				<div className="form-wrapper">
+				<div className="form-container">
 					<button className="close-button" onClick={this.props.closeForm}>X</button>
-					<form className="form-container">
-						<h4 className="joke-option-header">Choose Your Joke</h4>
-						{!this.state.error ? options : <p>Oops, something went wrong. Error: {this.state.error} jokes...</p>}
+					<form className="form">
+					<h4 className="joke-option-header">Choose Your Joke</h4>
+					{!this.state.error ? options : <p>Oops, something went wrong. Error: {this.state.error} jokes...</p>}
 					</form>
 					<div className="button-wrapper">
-						<button className="button" onClick={this.getJokeOptions}>get new jokes</button>
-						<button className="button" onClick={this.saveMeme}>save meme</button>
+						<button id="button" onClick={this.getJokeOptions}>get new jokes</button>
+						<button id="button" onClick={this.saveMeme}>save meme</button>
 					</div>
 				</div>
 			</div>

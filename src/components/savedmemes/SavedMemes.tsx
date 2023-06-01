@@ -1,9 +1,10 @@
 import React from 'react'
 import './SavedMemes.css'
 import { SavedMeme } from '../form/Form';
-import Meme  from '../meme/Meme';
+import Meme from '../meme/Meme';
 import { Link } from 'react-router-dom';
-import Star from  '../../assets/002-star.png'
+import star from '../../assets/star.png'
+import openStar from '../../assets/002-star.png'
 
 interface SavedMemesState {
 	showFavorites: boolean;
@@ -11,6 +12,7 @@ interface SavedMemesState {
 
 interface SavedMemesProps {
 	savedMemes: SavedMeme[];
+	favoriteMeme: (memeId: string) => void;
 }
 
 class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
@@ -22,33 +24,29 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 	}
 
 	displaySavedMemes = () => {
-		return this.props.savedMemes.map(meme => {
+
+		const savedMemes = this.props.savedMemes.map(meme => {
 			return (
-				<Link to={meme.id}>
-					<Meme selectedJoke={meme.joke} selectedImage={meme.image}/>
-				</Link>
+				<div key={meme.id}>
+						<Link to={meme.id} >
+							<Meme key={meme.id} selectedJoke={meme.joke} selectedImage={meme.image} />
+						</Link>
+							<img className='fav-icon' src={meme.favorite ? star : openStar} onClick={() => this.props.favoriteMeme(meme.id)} />
+					</div>
 			)
 		})
+
+		return savedMemes
 	}
 
-	displayFavoritedMemes = () => {
-			return this.props.savedMemes.map(meme => {
-			if(meme.favorite){
-				return(
-				<Link to={meme.id}>
-					<Meme selectedJoke={meme.joke} selectedImage={meme.image}/>
-				</Link>	
-			)}
-		})
-	}
 
 	render() {
-		{console.log('Checking', this.props.savedMemes)}
-		
+	
+		const savedMemes = this.displaySavedMemes()
 		return (
 			<div>
 				<h2>Saved Memes</h2>
-				{this.displaySavedMemes()}
+				{savedMemes}
 			</div>
 		)
 	}
