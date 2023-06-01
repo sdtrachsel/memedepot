@@ -78,22 +78,6 @@ class Form extends React.Component<FormProps, FormState> {
 			window.alert("Please select a joke before saving.")
 		}
 	}
- 
-	saveFavorite = () => {
-		if (this.state.selectedJoke)	{
-			const favorited: SavedMeme = {
-				image: this.state.selectedImage,
-				joke: this.state.selectedJoke,
-				id: `${Date.now()}`,
-				favorite: true
-			}
-			this.props.favoriteMeme(favorited)
-			this.clearInputs();
-			this.props.closeForm();
-		} else {
-			window.alert("Please select a joke before saving.")
-		}
-	}
 
 	clearInputs = () => {
 		this.setState({ selectedImage: "" });

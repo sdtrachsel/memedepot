@@ -26,7 +26,10 @@ class App extends React.Component<{}, AppState>{
     this.setState({savedMemes:[...this.state.savedMemes, newMeme]})
   }
 
-  favoriteMeme = (favorited: SavedMeme) => {
+  favoriteMeme = (id: SavedMeme) => {
+    const favorited = this.state.savedMemes.filter(meme => {
+     return meme.id === id
+    })
     this.setState({favoriteMemes: [...this.state.favoriteMemes, favorited]})
   }
 
