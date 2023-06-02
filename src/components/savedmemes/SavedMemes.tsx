@@ -26,8 +26,7 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 	createMemesDisplay = (memes: SavedMeme[]): JSX.Element[] => {
 		const memesDisplay: JSX.Element[] = memes.map(meme => {
 			return (
-
-				<div key={meme.id}>
+				<div className="saved-meme" key={meme.id}>
 					<img className='fav-icon' src={meme.favorite ? starFilled : starOutline} onClick={() => this.props.favoriteMeme(meme.id)} />
 					<Link to={meme.id} >
 						<Meme key={meme.id} selectedJoke={meme.joke} selectedImage={meme.image} />
@@ -48,7 +47,7 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 		const favMemes: JSX.Element[] = this.createMemesDisplay(this.props.savedMemes.filter(meme => meme.favorite))
 
 		return (
-			<div>
+			<div className="saved-meme-container">
 				<button onClick={this.handleViewFavorite}>{this.state.showFavorites? "Show All": "Favorites"}</button>
 				{this.state.showFavorites ? favMemes : allMemes}
 			</div>

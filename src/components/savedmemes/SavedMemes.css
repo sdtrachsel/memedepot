@@ -1,4 +1,3 @@
-
 .saved-container  {
   display: flex;
   flex-direction: row;
@@ -8,4 +7,25 @@
   height: fit-content;
   margin-top: 3vh;
   margin-bottom: 3vh;
+}
+
+.saved-meme{
+  height: auto;
+  width: 31vw;
+  cursor: pointer;
+}
+
+.saved-meme-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  padding-bottom: 3vh;
+  background-color: #ececec;
+  background: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }

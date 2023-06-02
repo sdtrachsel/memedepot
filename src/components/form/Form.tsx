@@ -3,8 +3,6 @@ import './Form.css'
 import React from 'react'
 import Meme from '../meme/Meme';
 import getJokes from '../../apiCalls';
-import Image from '../image/Image';
-import { type } from 'os';
 
 // types
 interface Joke {
@@ -54,17 +52,18 @@ class Form extends React.Component<FormProps, FormState> {
 	}
 
 	getJokeOptions = () => {
+		this.setState({ selectedJoke: "" });
 		getJokes()
 			.then((data) => {
 				const jokes: Joke[] = data.map((joke: Joke) => joke);
 				this.setState({ jokes: jokes });
 			})
 			.catch((error) => this.setState({ error: error.message }));
-			
+
 	}
 
 	saveMeme = () => {
-		if (this.state.selectedJoke)	{
+		if (this.state.selectedJoke) {
 			const newMeme: SavedMeme = {
 				image: this.state.selectedImage,
 				joke: this.state.selectedJoke,
@@ -111,15 +110,17 @@ class Form extends React.Component<FormProps, FormState> {
 
 		return (
 			<div className="generator-container">
-				<Meme
-					selectedJoke={selectedJoke}
-					selectedImage={selectedImage}
-				/>
+				<div className='form-meme-wrapper'>
+					<Meme
+						selectedJoke={selectedJoke}
+						selectedImage={selectedImage}
+					/>
+				</div>
 				<div className="form-container">
 					<button className="close-button" onClick={this.props.closeForm}>X</button>
 					<form className="form">
-					<h4 className="joke-option-header">Choose Your Joke</h4>
-					{!this.state.error ? options : <p>Oops, something went wrong. Error: {this.state.error} jokes...</p>}
+						<h4 className="joke-option-header">Choose Your Joke</h4>
+						{!this.state.error ? options : <p>Oops, something went wrong. Error: {this.state.error} jokes...</p>}
 					</form>
 					<div className="button-wrapper">
 						<button id="button" onClick={this.getJokeOptions}>get new jokes</button>
