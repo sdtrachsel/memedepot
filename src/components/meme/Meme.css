@@ -10,9 +10,15 @@
 
 .meme-joke {
   margin: 3%;
-  font-size: 1rem;
-  text-align: start;
   width: 94%;
+  font-size: 1rem;
+  color: black;
+  text-align: start;
+}
+
+a{
+  text-decoration: none;
+  font-weight: 400;
 }
 
 .meme-image {

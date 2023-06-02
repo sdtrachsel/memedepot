@@ -4,8 +4,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 60em) {
-  
+@media screen and (max-width: 57em) {
   .button-image{
     height: auto;
     width: 45vw;
@@ -13,8 +12,7 @@
 }
 
 @media screen and (max-width: 27em) {
-  
-  .button-image{
+   .button-image{
     height: auto;
     width: 80vw;
   }

@@ -6,14 +6,13 @@
 }
 
 .saved-meme-wrapper{
+  margin: 3vh 0vh;
+  height: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: auto;
   gap: 3vw;
   justify-items: center;
-  height: fit-content;
-  margin-top: 3vh;
-  margin-bottom: 3vh;
   background-color: #ececec;
 }
 
@@ -26,6 +25,7 @@
 }
 
 .fav-icon {
+  background-color: none;
   position: absolute;
   top: 3px;
   right: 3px;
@@ -36,7 +36,6 @@
   display: flex;
   justify-content: flex-end;
   background-color:white;
-  margin-bottom: 2em;
 }
 
 .view-fav-button {
