@@ -10,8 +10,8 @@ header {
 }
 
 .logo {
-  width: auto;
-  height: 15vh;
+  width: 7vw;
+  height: auto;
   min-width: 50px;
   margin-left: 1.5vw;
   background-color: #ffffff;
@@ -34,15 +34,17 @@ nav {
   font-size: .7rem;
   width: 10em;
   height: 2.7em;
+  padding: 10px 5px;
   border: none;
   color: #fff;
   background-color: #FC6C04;
-  transition: background-color .25s ease,color .25s ease;
+  transition: background-color .25s ease, color .25s ease;
   text-decoration: none;
   text-align: center;
   text-justify: center;
   text-anchor: middle;
   font-weight: 100;
+  overflow-x: visible
 }
 
 .header-button:hover {
@@ -54,10 +56,6 @@ nav {
     font-size: 10px;
     width: 115px;
     height: 30px;
-    padding-top: 10px;
-    padding-right: 5px;
-    padding-bottom: 10px;
-    padding-left: 5px;
   }
 }
 
@@ -66,9 +64,5 @@ nav {
     font-size: 8px;
     width: 100px;
     height: 30px;
-    padding-top: 10px;
-    padding-right: 5px;
-    padding-bottom: 10px;
-    padding-left: 5px;
   }
 }

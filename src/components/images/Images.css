@@ -1,7 +1,7 @@
 .instructions {
   align-self: center;
-  margin-top: 1.5vh;
-  margin-bottom: 1.5vh;
+  padding: 1.5vh 0;
+  background-color: #ececec
 }
 
 .image-container{
@@ -10,18 +10,26 @@
   grid-auto-rows: auto;
   align-items: center;
   gap: 2vw;
-  width: 96vw;
-  padding: 0vh 1.5vw 3vh 1.5vw;
+  width: 100vw;
+  padding: 3vh 1.5vw 3vh 1.5vw;
   background-color: #ececec;
 }
 
 @media screen and (max-width: 60em) {
+  .image-container { 
+    grid-template-columns: repeat(2, 1fr)
+  }
   .instructions  {
     font-size: 14px;
    }
 }
 
 @media screen and (max-width: 50em) {
+  .image-container { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
  .instructions  {
   font-size: 12px;
  }

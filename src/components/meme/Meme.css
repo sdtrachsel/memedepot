@@ -1,5 +1,6 @@
 .meme {
   border: 1px #c3c3c3 solid;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,13 +11,13 @@
 
 .meme-joke {
   margin: 3%;
-  width: 94%;
+  width: 95%;
   font-size: 1rem;
   color: black;
   text-align: start;
 }
 
-a{
+a {
   text-decoration: none;
   font-weight: 400;
 }
@@ -29,7 +30,7 @@ a{
 }
 
 @media screen and (max-width: 75em) {
-  .meme-joke  {
+  .meme-joke {
     font-size: 12px;
   }
 }
