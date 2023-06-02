@@ -1,5 +1,4 @@
 .generator-container {
-
   display: flex;
   height: 70vh;
   width: 70vw;
@@ -116,6 +115,7 @@ input[type="radio"] {
 
   .joke-option  {
     font-size: 12px;
+    text-align: left;
   }
 }
 
@@ -129,5 +129,17 @@ input[type="radio"] {
 
   .joke-option  {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .meme-joke {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .meme-image {
+    font-size: 8px;
   }
 }

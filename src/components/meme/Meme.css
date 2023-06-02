@@ -29,13 +29,13 @@ a {
   margin-bottom: 2%;
 }
 
-@media screen and (max-width: 75em) {
+@media screen and (max-width: 60em) {
   .meme-joke {
     font-size: 12px;
   }
 }
 
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 30em) {
   .meme-image {
     font-size: 8px;
   }

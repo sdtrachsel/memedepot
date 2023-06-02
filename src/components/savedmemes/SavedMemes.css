@@ -34,21 +34,20 @@
 
 .view-fav-btn-wrapper{
   display: flex;
-  justify-content: flex-end;
-  background-color:white;
+  justify-content: flex;
+  background-color:#ececec;
 }
 
 .view-fav-button {
-  align-self: flex-end;
-  margin: .5em 1.2em 1em 0em ;
+  align-self: center;
+  margin: 1em 0em 0em 1em ;
   cursor: pointer;
-  border-radius: 3px;
   font-size: .7rem;
   width: 10.3em;
   height: 2.7em;
-  border: none;
-  color: #fff;
-  background-color: #FC6C04;
+  color: #FC6C04;
+  border: #FC6C04 2px solid;
+  background-color: white;
   transition: background-color .25s ease,color .25s ease;
   text-decoration: none;
   text-align: center;
@@ -58,5 +57,6 @@
 }
 
 .view-fav-button:hover {
-  background-color: #fe8026;
+  background-color: #FC6C04;
+  color: white;
 }
