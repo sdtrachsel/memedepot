@@ -1,32 +1,36 @@
 .instructions {
   align-self: center;
-  margin-top: 1.5vh;
-  margin-bottom: 1.5vh;
+  padding: 1.5vh 0;
+  background-color: #ececec
 }
 
 .image-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
   align-items: center;
   gap: 2vw;
   width: 100vw;
-  padding-right: 1.5vw;
-  padding-left: 1.5vw;
-  padding-bottom: 3vh;
+  padding: 3vh 1.5vw 3vh 1.5vw;
   background-color: #ececec;
-  background: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }
 
-@media screen and (max-width: 75em) {
+@media screen and (max-width: 57em) {
+  .image-container { 
+    grid-template-columns: repeat(2, 1fr)
+  }
   .instructions  {
     font-size: 14px;
    }
 }
 
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 30em) {
+  .image-container { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
  .instructions  {
   font-size: 12px;
  }

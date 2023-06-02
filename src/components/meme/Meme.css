@@ -1,17 +1,25 @@
 .meme {
-  margin: 1%;
+  border: 1px #c3c3c3 solid;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 95%;
-  width: 50vw;
+  height: auto;
+  width: 95%;
   border-radius: 5px;
-  border: 1px #c3c3c3 solid;
-  overflow: scroll;
 }
 
 .meme-joke {
   margin: 3%;
+  width: 95%;
+  font-size: 1rem;
+  color: black;
+  text-align: start;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 400;
 }
 
 .meme-image {
@@ -21,13 +29,13 @@
   margin-bottom: 2%;
 }
 
-@media screen and (max-width: 75em) {
-  .meme-joke  {
+@media screen and (max-width: 60em) {
+  .meme-joke {
     font-size: 12px;
   }
 }
 
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 30em) {
   .meme-image {
     font-size: 8px;
   }
