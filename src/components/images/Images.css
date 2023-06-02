@@ -15,7 +15,7 @@
   background-color: #ececec;
 }
 
-@media screen and (max-width: 60em) {
+@media screen and (max-width: 57em) {
   .image-container { 
     grid-template-columns: repeat(2, 1fr)
   }

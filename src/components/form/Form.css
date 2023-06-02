@@ -83,7 +83,7 @@ input[type="radio"] {
   background-color: #fe8026;
 }
 
-#button {
+.form-button {
   cursor: pointer;
   border-radius: 3px;
   font-size: 13px;
@@ -101,7 +101,7 @@ input[type="radio"] {
   font-weight: 100;
 }
 
-#button:hover {
+.form-button:hover {
   background-color: #fe8026;
 }
 

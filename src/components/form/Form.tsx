@@ -20,6 +20,7 @@ interface FormState {
 	error: string;
 	selectedImage: string;
 	selectedJoke: string;
+	selectedOptionIndex: number;
 }
 
 interface FormProps {
@@ -37,21 +38,23 @@ class Form extends React.Component<FormProps, FormState> {
 			error: "",
 			selectedImage: this.props.selectedImage,
 			selectedJoke: "",
+			selectedOptionIndex: -1,
 		}
 	}
 
 	// lifecycle methods 
 	componentDidMount = () => {
+		console.log('entered mount')
 		this.getJokeOptions()
 	}
 
 	// methods
-	selectJoke = (joke: string) => {
-		this.setState({ selectedJoke: joke });
+	selectJoke = (joke: string, index: number) => {
+		this.setState({ selectedJoke: joke, selectedOptionIndex: index });
 	}
 
 	getJokeOptions = () => {
-		this.setState({ selectedJoke: "" });
+		this.setState({ selectedJoke: "", selectedOptionIndex: -1 });
 		getJokes()
 			.then((data) => {
 				const jokes: Joke[] = data.map((joke: Joke) => joke);
@@ -73,16 +76,16 @@ class Form extends React.Component<FormProps, FormState> {
 						name="joke-option"
 						value={joke.joke}
 						required
-						onChange={(event) => this.selectJoke(event.target.value)}
+						checked={this.state.selectedOptionIndex === index}
+						onChange={() => this.selectJoke(joke.joke, index)}
 					/>
 					<label htmlFor={`joke${index + 1}`} id={`joke${index + 1}`} className="joke-option"> {joke.joke} </label>
 				</div>
 			)
-
 		})
 		return options
 	}
-	
+
 	saveMeme = () => {
 		if (this.state.selectedJoke) {
 			const newMeme: SavedMeme = {
@@ -100,8 +103,7 @@ class Form extends React.Component<FormProps, FormState> {
 	}
 
 	clearInputs = () => {
-		this.setState({ selectedImage: "" });
-		this.setState({ selectedJoke: "" });
+		this.setState({ selectedImage: "", selectedJoke: "", selectedOptionIndex: -1 });
 	}
 
 	// component render
@@ -116,10 +118,7 @@ class Form extends React.Component<FormProps, FormState> {
 		return (
 			<div className="generator-container">
 				<div className='form-meme-wrapper'>
-					<Meme
-						selectedJoke={selectedJoke}
-						selectedImage={selectedImage}
-					/>
+					<Meme selectedJoke={selectedJoke} selectedImage={selectedImage} />
 				</div>
 				<div className="form-container">
 					<button className="close-button" onClick={this.props.closeForm}>X</button>
@@ -128,8 +127,8 @@ class Form extends React.Component<FormProps, FormState> {
 						{!this.state.error ? jokeOptions : <p>Oops, something went wrong. Error: {this.state.error} jokes...</p>}
 					</form>
 					<div className="button-wrapper">
-						<button id="button" onClick={this.getJokeOptions}>get new jokes</button>
-						<button id="button" onClick={this.saveMeme}>save meme</button>
+						<button className="form-button" onClick={this.getJokeOptions}>get new jokes</button>
+						<button className="form-button" onClick={this.saveMeme}>save meme</button>
 					</div>
 				</div>
 			</div>
