@@ -1,16 +1,18 @@
 .meme {
+  border: 1px #c3c3c3 solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 95%;
+  height: auto;
   width: 95%;
   border-radius: 5px;
-  border: 1px #c3c3c3 solid;
 }
 
 .meme-joke {
   margin: 3%;
   font-size: 1rem;
+  text-align: start;
+  width: 94%;
 }
 
 .meme-image {

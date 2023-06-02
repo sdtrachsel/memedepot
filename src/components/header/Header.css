@@ -28,16 +28,12 @@ nav {
   background-color: white;
 }
 
-#header-button {
+.header-button {
   cursor: pointer;
   border-radius: 3px;
-  font-size: 13px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 30px;
-  padding-left: 30px;
-  width: 145px;
-  height: 35px;
+  font-size: .7rem;
+  width: 10em;
+  height: 2.7em;
   border: none;
   color: #fff;
   background-color: #FC6C04;
@@ -49,12 +45,12 @@ nav {
   font-weight: 100;
 }
 
-#header-button:hover {
+.header-button:hover {
   background-color: #fe8026;
 }
 
 @media screen and (max-width: 75em) {
-  #header-button {
+  .header-button {
     font-size: 10px;
     width: 115px;
     height: 30px;
@@ -66,7 +62,7 @@ nav {
 }
 
 @media screen and (max-width: 50em) {
-  #header-button {
+  .header-button {
     font-size: 8px;
     width: 100px;
     height: 30px;
