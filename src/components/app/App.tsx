@@ -55,7 +55,9 @@ class App extends React.Component<{}, AppState>{
             //Error page or redirect to home
           } else {
             return(
+              <div className='single-view-wrapper'>
               <Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image}/>
+              </div>
             )
           }
         }} />

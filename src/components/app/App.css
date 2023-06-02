@@ -13,6 +13,13 @@
   pointer-events: none;
 }
 
+.single-view-wrapper{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 2vh 20vw;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

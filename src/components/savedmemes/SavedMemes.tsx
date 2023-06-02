@@ -39,7 +39,7 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 	}
 
 	handleViewFavorite = () => {
-		this.setState((prevState)=> ({ showFavorites: !prevState.showFavorites}))
+		this.setState((prevState) => ({ showFavorites: !prevState.showFavorites }))
 	}
 
 	render() {
@@ -48,9 +48,11 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 
 		return (
 			<div className="saved-meme-container">
-				<button className="view-fav-button"onClick={this.handleViewFavorite}>{this.state.showFavorites? "Show All": "View Favorites"}</button>
+				<div className="view-fav-btn-wrapper">
+					<button className="view-fav-button" onClick={this.handleViewFavorite}>{this.state.showFavorites ? "Show All" : "View Favorites"}</button>
+				</div>
 				<div className="saved-meme-wrapper">
-				{this.state.showFavorites ? favMemes : allMemes}
+					{this.state.showFavorites ? favMemes : allMemes}
 				</div>
 			</div>
 		)

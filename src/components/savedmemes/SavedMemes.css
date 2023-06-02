@@ -1,5 +1,4 @@
 .saved-meme-container{
-  /* border: green 2px solid; */
   display: flex;
   flex-direction: column;
    height: 100%;
@@ -33,14 +32,20 @@
   height: 5vh;
 }
 
+.view-fav-btn-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  background-color:white;
+  margin-bottom: 2em;
+}
+
 .view-fav-button {
   align-self: flex-end;
-  margin: .5em .5em 0em 0em ;
-  margin-right: 1em;
+  margin: .5em 1.2em 1em 0em ;
   cursor: pointer;
   border-radius: 3px;
   font-size: .7rem;
-  width: 10.5em;
+  width: 10.3em;
   height: 2.7em;
   border: none;
   color: #fff;
