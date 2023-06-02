@@ -1,0 +1,42 @@
+.meme {
+  border: 1px #c3c3c3 solid;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  width: 95%;
+  border-radius: 5px;
+}
+
+.meme-joke {
+  margin: 3%;
+  width: 95%;
+  font-size: 1rem;
+  color: black;
+  text-align: start;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.meme-image {
+  align-self: center;
+  width: 95%;
+  height: auto;
+  margin-bottom: 2%;
+}
+
+@media screen and (max-width: 60em) {
+  .meme-joke {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .meme-image {
+    font-size: 8px;
+  }
+}
