@@ -1,19 +1,8 @@
-// imports
-import './Form.css'
 import React from 'react'
+import './Form.css'
 import Meme from '../meme/Meme';
 import getJokes from '../../apiCalls';
-
-// types
-interface Joke {
-	joke: string;
-}
-
-interface SavedMeme extends Joke {
-	image: string;
-	id: string;
-	favorite: boolean;
-}
+import { Joke, SavedMeme } from '../../types'
 
 interface FormState {
 	jokes: Joke[];
@@ -29,7 +18,6 @@ interface FormProps {
 	closeForm: () => void;
 }
 
-// component 
 class Form extends React.Component<FormProps, FormState> {
 	constructor(props: FormProps) {
 		super(props)
@@ -42,12 +30,10 @@ class Form extends React.Component<FormProps, FormState> {
 		}
 	}
 
-	// lifecycle methods 
 	componentDidMount = () => {
 		this.getJokeOptions()
 	}
 
-	// methods
 	selectJoke = (joke: string, index: number) => {
 		this.setState({ selectedJoke: joke, selectedOptionIndex: index });
 	}
@@ -106,8 +92,7 @@ class Form extends React.Component<FormProps, FormState> {
 		this.setState({ selectedImage: "", selectedJoke: "", selectedOptionIndex: -1 });
 	}
 
-	// component render
-	render = () => {
+	render = (): JSX.Element => {
 		const { jokes, selectedImage, selectedJoke, error } = this.state;
 		const jokeOptions: JSX.Element[] = this.createJokeOptions()
 
@@ -137,4 +122,3 @@ class Form extends React.Component<FormProps, FormState> {
 }
 
 export default Form;
-export type { SavedMeme };

@@ -1,6 +1,7 @@
+import React from 'react'
 import './Error.css'
 
-const Error = () => {
+const Error = (): JSX.Element => {
   return (
     <div>
       <h1 className="error-message">Something went wrong.</h1>

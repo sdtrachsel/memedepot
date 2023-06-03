@@ -1,10 +1,10 @@
 import React from 'react'
 import './SavedMemes.css'
-import { SavedMeme } from '../form/Form';
-import Meme from '../meme/Meme';
-import { Link } from 'react-router-dom';
 import starOutline from '../../assets/favorite-outline.png'
 import starFilled from '../../assets/favorite-filled.png'
+import Meme from '../meme/Meme';
+import { Link } from 'react-router-dom';
+import { SavedMeme } from '../../types'
 
 interface SavedMemesState {
 	showFavorites: boolean;
@@ -42,27 +42,24 @@ class SavedMemes extends React.Component<SavedMemesProps, SavedMemesState>{
 		this.setState((prevState) => ({ showFavorites: !prevState.showFavorites }))
 	}
 
-	renderAllMemes = () => {
+	renderAllMemes = (): JSX.Element[] => {
 		const { savedMemes } = this.props;
 		return this.createMemesDisplay(savedMemes);
 	}
 
-	renderFavoriteMemes = () => {
+	renderFavoriteMemes = (): JSX.Element[] => {
 		const { savedMemes } = this.props;
 		return this.createMemesDisplay(savedMemes.filter(meme => meme.favorite));
 	}
 
-	render() {
+	render(): JSX.Element {
 		const { showFavorites } = this.state;
 		const buttonLabel = showFavorites ? "Show All" : "View Favorites";
 
 		return (
 			<div className="saved-meme-container">
 				<div className="view-fav-btn-wrapper">
-					<button 
-						className="view-fav-button" 
-						onClick={this.handleViewFavorite}
-					>
+					<button	className="view-fav-button" onClick={this.handleViewFavorite} >
 						{buttonLabel}
 					</button>
 				</div>

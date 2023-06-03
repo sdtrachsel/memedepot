@@ -1,8 +1,4 @@
-type MemeImage = {
-  id: string;
-  path: string;
-  alt: string;
-};
+import { MemeImage } from "./types";
 
 const memeImages: MemeImage[] = [
   { id: '1', path: 'https://i.imgur.com/6AgsAtM.png', alt: 'Ron Swanson "I regret nothing. The end."' },
@@ -27,4 +23,3 @@ const memeImages: MemeImage[] = [
 ];
 
 export default memeImages;
-export type { MemeImage };

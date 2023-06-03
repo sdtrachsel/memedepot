@@ -1,21 +1,21 @@
 import React from 'react'
-import Form from '../form/Form'
 import './Images.css'
+import Form from '../form/Form'
 import Image from '../image/Image'
-import memeImages, { MemeImage } from '../../meme_image_data'
-import { SavedMeme } from '../form/Form'
+import memeImages from '../../meme_image_data'
+import { SavedMeme, MemeImage } from '../../types'
 
 interface ImagesState {
 	selectedToggle: boolean;
 	selectedImage: string;
 };
 
-interface ImageProps {
+interface ImagesProps {
 	saveNewMeme: (newMeme: SavedMeme) => void;
 }
 
-class Images extends React.Component<ImageProps, ImagesState>{
-	constructor(props: ImageProps) {
+class Images extends React.Component<ImagesProps, ImagesState>{
+	constructor(props: ImagesProps) {
 		super(props)
 		this.state = {
 			selectedToggle: false,
@@ -33,7 +33,7 @@ class Images extends React.Component<ImageProps, ImagesState>{
 		this.setState({ selectedToggle: false, selectedImage: '' })
 	}
 
-	renderInstructions = () => {
+	renderInstructions = (): JSX.Element | null => {
 		const { selectedImage } = this.state;
 		if (!selectedImage) {
 			return <p className="instructions">Click on a picture to get started:</p>;
@@ -41,19 +41,19 @@ class Images extends React.Component<ImageProps, ImagesState>{
 		return null;
 	}
 
-	renderImages = () => {
+	renderImages = (): JSX.Element[] => {
 		const memeButtons = memeImages.map((image: MemeImage) => (
 			<Image key={image.id} id={image.id} path={image.path} alt={image.alt} selectImage={this.selectImage} />
 		));
 		return memeButtons;
 	}
 
-	renderFormOrImages = () => {
+	renderFormOrImages = (): JSX.Element | JSX.Element[] => {
 		const { selectedToggle, selectedImage } = this.state;
 		if (selectedToggle) {
 			return (
-				<Form 
-					selectedImage={selectedImage} 
+				<Form
+					selectedImage={selectedImage}
 					saveNewMeme={this.props.saveNewMeme}
 					closeForm={this.closeForm}
 				/>
@@ -63,7 +63,7 @@ class Images extends React.Component<ImageProps, ImagesState>{
 		}
 	}
 
-	render(): React.ReactNode {
+	render(): JSX.Element {
 		return (
 			<div>
 				{this.renderInstructions()}

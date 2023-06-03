@@ -1,13 +1,11 @@
 import React from 'react';
 import './Meme.css';
 
-// types
 interface MemeProps {
   selectedJoke: string;
   selectedImage: string;
 }
 
-// component 
 const Meme: React.FC<MemeProps> = (props) => {
   const { selectedJoke, selectedImage } = props;
 
