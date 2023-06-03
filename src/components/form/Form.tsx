@@ -86,10 +86,11 @@ class Form extends React.Component<FormProps, FormState> {
 	}
 
 	saveMeme = () => {
-		if (this.state.selectedJoke) {
+		const { selectedJoke, selectedImage } = this.state;
+		if (selectedJoke) {
 			const newMeme: SavedMeme = {
-				image: this.state.selectedImage,
-				joke: this.state.selectedJoke,
+				image: selectedImage,
+				joke: selectedJoke,
 				id: `${Date.now()}`,
 				favorite: false
 			}
@@ -107,7 +108,7 @@ class Form extends React.Component<FormProps, FormState> {
 
 	// component render
 	render = () => {
-		const { jokes, selectedImage, selectedJoke } = this.state;
+		const { jokes, selectedImage, selectedJoke, error } = this.state;
 		const jokeOptions: JSX.Element[] = this.createJokeOptions()
 
 		if (jokes.length < 0) {
@@ -123,7 +124,7 @@ class Form extends React.Component<FormProps, FormState> {
 					<button className="close-button" onClick={this.props.closeForm}>X</button>
 					<form className="form">
 						<h4 className="joke-option-header">Choose Your Joke</h4>
-						{!this.state.error ? jokeOptions : <p>Oops, something went wrong. Error: {this.state.error} jokes...</p>}
+						{!error ? jokeOptions : <p>Oops, something went wrong. Error: {error} jokes...</p>}
 					</form>
 					<div className="button-wrapper">
 						<button className="form-button" onClick={this.getJokeOptions}>get new jokes</button>

@@ -39,6 +39,14 @@ class App extends React.Component<{}, AppState>{
     this.setState({ savedMemes: updatedMemes })
   }
 
+  renderMeme = ({ match }: { match: any }) => {
+    const memeId = match.params.id;
+    const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
+    return (findMeme 
+      ? <div className='single-view-wrapper'><Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image} /></div> 
+      : <Error />);
+  }
+
   render(): React.ReactNode {
     return (
       <div className="App">
@@ -46,13 +54,7 @@ class App extends React.Component<{}, AppState>{
         <Switch>
           <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} />
           <Route exact path="/savedmemes" render={() => <SavedMemes favoriteMeme={this.favoriteMeme} savedMemes={this.state.savedMemes} />} />
-          <Route exact path="/:id" render={({ match }) => {
-            const memeId = match.params.id;
-            const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
-              return (findMeme ? <div className='single-view-wrapper'>
-              <Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image} />
-            </div> : <Error />)
-          }} />
+          <Route exact path="/:id" render={this.renderMeme} />
           <Route exact path='*' render={() => <Error />}  />
         </Switch>
       </div>
