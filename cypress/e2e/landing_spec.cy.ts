@@ -15,7 +15,7 @@ describe('home page', () => {
 
   it('should dislay Home and Saved Meme nav links', () => {
     cy.get('.header-button')
-      .should('contain', 'Home')
+    .should('contain', 'Home')
   });
 
   it('should have 19 images upon landing', () => {
@@ -37,7 +37,6 @@ describe('home page', () => {
   it('should notify users of any errors', () => {
     cy.intercept('GET', 'https://api.api-ninjas.com/v1/dadjokes?limit=3', {
       statusCode: 500,
-      fixture: 'jokes.json'
     })
     .visit('http://localhost:3000/')
     .get('.error-message').should('contain', 'Something went wrong')

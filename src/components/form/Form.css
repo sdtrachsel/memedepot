@@ -42,18 +42,25 @@
   margin-bottom: 10%;
 }
 
-.joke-option-wrapper {
-  display: flex;
+.joke-option-button {
+  display: flex; 
   flex-direction: row;
-  justify-content: flex-start;
-  margin-bottom: 2.5%;
+  justify-content: flex-start; 
+  margin-bottom: 2.5%; 
+}
+
+.joke-option-wrapper {
+   display: flex; 
+   flex-direction: row; 
+   justify-content: flex-start; 
+   margin-bottom: 2.5%; 
+   text-align: left;
 }
 
 input[type="radio"] {
   display: block;
-  height: auto;
-  width: 2vw;
-  margin: 3px 3px 0px 5px
+  flex-shrink: 0;
+  margin: 3px 3px 30px 5px
 }
 
 .button-wrapper {
@@ -99,6 +106,7 @@ input[type="radio"] {
   text-justify: center;
   text-anchor: middle;
   font-weight: 100;
+  overflow: visible;
 }
 
 .form-button:hover {
