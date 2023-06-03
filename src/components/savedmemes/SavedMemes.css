@@ -1,19 +1,24 @@
 .saved-meme-container{
   display: flex;
   flex-direction: column;
-   height: 100vh;
-   background-color: #ececec;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 97vw;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+  background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }
 
 .saved-meme-wrapper{
   margin: 3vh 0vh;
   height: fit-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
-  gap: 3vw;
-  justify-items: center;
-  background-color: #ececec;
+  display: flex;
+  flex-direction: row;
+  flex-direction: wrap;
+  justify-content: space-between;
+  align-items: top;
+  background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }
 
 .saved-meme{
@@ -21,7 +26,7 @@
   width: 30vw;
   cursor: pointer;
   position: relative;
-  background-color: #ececec;
+  background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }
 
 .fav-icon {
@@ -34,29 +39,49 @@
 
 .view-fav-btn-wrapper{
   display: flex;
-  justify-content: flex;
-  background-color:#ececec;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color:#ffffff;
 }
 
 .view-fav-button {
-  align-self: center;
-  margin: 1em 0em 0em 1em ;
   cursor: pointer;
-  font-size: .7rem;
-  width: 10.3em;
-  height: 2.7em;
-  color: #FC6C04;
-  border: #FC6C04 2px solid;
-  background-color: white;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 10px 30px;
+  width: 145px;
+  height: 35px;
+  border: none;
+  color: #fff;
+  background-color: #FC6C04;
   transition: background-color .25s ease,color .25s ease;
   text-decoration: none;
   text-align: center;
   text-justify: center;
   text-anchor: middle;
   font-weight: 100;
+  overflow: visible;
 }
 
-.view-fav-button:hover {
-  background-color: #FC6C04;
-  color: white;
+.view-fav-button:hover  {
+  background-color: #fe8026;
 }
+
+@media screen and (max-width: 75em) {
+  .view-fav-button {
+    font-size: 10px;
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  .view-fav-button {
+    font-size: 8px;
+    width: 75px;
+    max-height: 25px;
+    padding: 5px;
+  }
+}
+
