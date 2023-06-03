@@ -22,6 +22,7 @@
 .saved-meme {
   height: auto;
   width: 30vw;
+  margin-bottom: 1.5vh;
   cursor: pointer;
   position: relative;
   background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
@@ -65,7 +66,21 @@
   background-color: #fe8026;
 }
 
-@media screen and (max-width: 75em) {
+@media screen and (max-width: 57em) {
+  .saved-meme-wrapper {
+    justify-content: space-between;
+  }
+
+  .saved-meme {
+    width: 45%;
+  }
+
+  .fav-icon {
+    top: .7vh;
+    right: 3vw;
+    height: 2.5vh;
+  }
+
   .view-fav-button {
     font-size: 10px;
     width: 100px;
@@ -74,7 +89,19 @@
   }
 }
 
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 30em) {
+  .saved-meme {
+    width: 75%;
+  }
+
+  .saved-meme-wrapper {
+    justify-content: center;
+  }
+
+  .fav-icon {
+    right: 4.25vw;
+  }
+
   .view-fav-button {
     font-size: 8px;
     width: 75px;
