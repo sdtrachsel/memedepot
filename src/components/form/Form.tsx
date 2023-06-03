@@ -44,7 +44,6 @@ class Form extends React.Component<FormProps, FormState> {
 
 	// lifecycle methods 
 	componentDidMount = () => {
-		console.log('entered mount')
 		this.getJokeOptions()
 	}
 
