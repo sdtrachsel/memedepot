@@ -1,7 +1,7 @@
 .instructions {
   align-self: center;
   padding: 1.5vh 0;
-  background-color: #ececec
+  background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }
 
 .image-container{
@@ -12,7 +12,7 @@
   gap: 2vw;
   width: 100vw;
   padding: 3vh 1.5vw 3vh 1.5vw;
-  background-color: #ececec;
+  background-color: linear-gradient(to bottom, transparent 75%, #e7e7e7 100%);
 }
 
 @media screen and (max-width: 57em) {

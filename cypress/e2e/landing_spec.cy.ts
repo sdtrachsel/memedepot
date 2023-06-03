@@ -29,17 +29,17 @@ describe('home page', () => {
   it('the last image should be a picture of Bob Belcher', () => {
     cy.get('.button-image').last().and('have.attr', 'src').and('include', 'https://i.imgur.com/JjzYBO5.png')
   });
-   
+
   it('should open meme generator', () => {
     cy.get('.button-image').first().click().get('.generator-container')
   });
 
-  it('should notify users of any errors', () => {
-    cy.intercept('GET', 'https://api.api-ninjas.com/v1/dadjokes?limit=3', {
-      statusCode: 500,
-    })
-    .visit('http://localhost:3000/')
-    .get('.error-message').should('contain', 'Something went wrong')
+  it('should notify users of bad URL paths', () => {
+    cy.visit('http://localhost:3000/test')
+    .get('.error-message').first()
+    .should('contain', "Something went wrong.")
+    .get('.error-message').last()
+    .should('contain', "URL not found.")
   });
 })
 }
