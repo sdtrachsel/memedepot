@@ -39,7 +39,8 @@
 }
 
 .joke-option-header {
-  margin-bottom: 10%;
+  height: fit-content;
+  margin-bottom: .7em;
 }
 
 .joke-option-button {
@@ -64,10 +65,11 @@ input[type="radio"] {
 }
 
 .button-wrapper {
+  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-bottom: 2em;
+  margin-bottom: .7em;
 }
 
 .close-button {
@@ -143,4 +145,3 @@ input[type="radio"] {
     font-size: 12px;
   }
 }
-
