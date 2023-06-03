@@ -17,7 +17,7 @@ interface SavedMeme extends Joke {
 
 interface FormState {
 	jokes: Joke[];
-	error: string;
+	error: null;
 	selectedImage: string;
 	selectedJoke: string;
 	selectedOptionIndex: number;
@@ -35,7 +35,7 @@ class Form extends React.Component<FormProps, FormState> {
 		super(props)
 		this.state = {
 			jokes: [],
-			error: "",
+			error: null,
 			selectedImage: this.props.selectedImage,
 			selectedJoke: "",
 			selectedOptionIndex: -1,
