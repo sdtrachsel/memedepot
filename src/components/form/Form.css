@@ -41,6 +41,7 @@
 .joke-option-header {
   height: fit-content;
   margin-bottom: .7em;
+  text-align: center;
 }
 
 .joke-option-button {

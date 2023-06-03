@@ -48,7 +48,7 @@
   border-radius: 3px;
   font-size: 13px;
   padding: 10px 30px;
-  width: 145px;
+  width: fit-content;
   height: 35px;
   border: none;
   color: #fff;
