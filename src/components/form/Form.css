@@ -119,7 +119,6 @@ input[type="radio"] {
 @media screen and (max-width: 57em) {
   .generator-container {
     flex-direction: column;
-    border: purple 2px solid;
     flex-direction: column;
     width: 80%;
     height: fit-content;
