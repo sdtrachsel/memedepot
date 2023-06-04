@@ -1,8 +1,6 @@
 import React from "react";
 import "./Image.css";
-import { MemeImage } from "../../meme_image_data";
 
-// types
 interface ImageState {
   selectedToggle: boolean;
   selectedImage: string;
@@ -11,11 +9,10 @@ interface ImageState {
 interface ImageProps {
   id: string;
   path: string;
-  alt:string;
-  selectImage: (event: React.MouseEvent<HTMLImageElement>) => void;  
+  alt: string;
+  selectImage: (event: React.MouseEvent<HTMLImageElement>) => void;
 };
 
-// component
 class Image extends React.Component<ImageProps, ImageState> {
   constructor(props: ImageProps) {
     super(props);
@@ -25,17 +22,17 @@ class Image extends React.Component<ImageProps, ImageState> {
     };
   }
 
-  render = () => {
+  render = (): JSX.Element => {
     const { id, path, alt } = this.props;
     return (
-        <img
-          className="button-image"
-          id={id}
-          src={path}
-          alt={alt}
-          onClick={event => this.props.selectImage(event)}
-        />
-      
+      <img
+        className="button-image"
+        id={id}
+        src={path}
+        alt={alt}
+        onClick={event => this.props.selectImage(event)}
+      />
+
     );
   };
 }

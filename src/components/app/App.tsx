@@ -3,16 +3,13 @@ import './App.css';
 import Error from '../error/Error';
 import Header from '../header/Header';
 import Images from '../images/Images';
+import Meme from '../meme/Meme';
 import SavedMemes from '../savedmemes/SavedMemes';
 import { Route, Switch } from 'react-router-dom';
-import { SavedMeme } from '../form/Form';
-import Meme from '../meme/Meme';
+import { SavedMeme, SavedMemesList } from '../../types'
+import { JsxElement } from 'typescript';
 
-interface AppState {
-  savedMemes: SavedMeme[]
-}
-
-class App extends React.Component<{}, AppState>{
+class App extends React.Component<{}, SavedMemesList>{
   constructor(props: {}) {
     super(props)
     this.state = {
@@ -39,21 +36,23 @@ class App extends React.Component<{}, AppState>{
     this.setState({ savedMemes: updatedMemes })
   }
 
-  render(): React.ReactNode {
+  renderMeme = ({ match }: { match: any }): JSX.Element => {
+    const memeId = match.params.id;
+    const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
+    return (findMeme
+      ? <div className='single-view-wrapper'><Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image} /></div>
+      : <Error />);
+  }
+
+  render(): JSX.Element {
     return (
       <div className="App">
         <Header savedMemes={this.state.savedMemes} />
         <Switch>
           <Route exact path="/" render={() => <Images saveNewMeme={this.saveNewMeme} />} />
           <Route exact path="/savedmemes" render={() => <SavedMemes favoriteMeme={this.favoriteMeme} savedMemes={this.state.savedMemes} />} />
-          <Route exact path="/:id" render={({ match }) => {
-            const memeId = match.params.id;
-            const findMeme = this.state.savedMemes.find(meme => meme.id === memeId)
-              return (findMeme ? <div className='single-view-wrapper'>
-              <Meme selectedJoke={findMeme.joke} selectedImage={findMeme.image} />
-            </div> : <Error />)
-          }} />
-          <Route exact path='*' render={() => <Error />}  />
+          <Route exact path="/:id" render={this.renderMeme} />
+          <Route exact path='*' render={() => <Error />} />
         </Switch>
       </div>
     );

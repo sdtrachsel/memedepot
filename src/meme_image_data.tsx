@@ -1,8 +1,4 @@
-type MemeImage = {
-  id: string;
-  path: string;
-  alt: string;
-};
+import { MemeImage } from "./types";
 
 const memeImages: MemeImage[] = [
   { id: '1', path: 'https://i.imgur.com/6AgsAtM.png', alt: 'Ron Swanson "I regret nothing. The end."' },
@@ -15,7 +11,6 @@ const memeImages: MemeImage[] = [
   { id: '8', path: 'https://i.imgur.com/vO6SFsN.png', alt: 'Danny Tanner smirking and pointing.' },
   { id: '9', path: 'https://i.imgur.com/hp9h6l2.png', alt: 'Dad standing watching news but looking thoughtful.' },
   { id: '10', path: 'https://i.imgur.com/vomb8yO.png', alt: 'Dad throwing child in air very, very high.' },
-  { id: '11', path: 'https://i.imgur.com/jcAAwgd.png', alt: 'Chief Hopper running so fast he is blurred.' },
   { id: '12', path: 'https://i.imgur.com/BhQdGNQ.png', alt: 'Happy dad grilling.' },
   { id: '13', path: 'https://i.imgur.com/ZafGQDO.png', alt: 'Tim "The Tool Man" Taylor posing with a hammer.' },
   { id: '14', path: 'https://i.imgur.com/T8eHLkJ.png', alt: 'Dad in aviator with cool dog in sunglasses.' },
@@ -27,4 +22,3 @@ const memeImages: MemeImage[] = [
 ];
 
 export default memeImages;
-export type { MemeImage };

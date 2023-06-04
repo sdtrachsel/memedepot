@@ -1,29 +1,28 @@
-.saved-meme-container{
+.saved-meme-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: flex-start;
-  height: 100vh;
+  height: fit-content;
   width: 97vw;
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
+  margin: 0 1.5vw;
   background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }
 
-.saved-meme-wrapper{
+.saved-meme-wrapper {
   margin: 3vh 0vh;
   height: fit-content;
   display: flex;
   flex-direction: row;
-  flex-direction: wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: top;
   background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
 }
 
-.saved-meme{
+.saved-meme {
   height: auto;
   width: 30vw;
+  margin-bottom: 1.5vh;
   cursor: pointer;
   position: relative;
   background-color: linear-gradient(to bottom, transparent 0%, #e7e7e7 100%);
@@ -37,11 +36,11 @@
   height: 3.5vh;
 }
 
-.view-fav-btn-wrapper{
+.view-fav-btn-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  background-color:#ffffff;
+  background-color: #ffffff;
 }
 
 .view-fav-button {
@@ -49,12 +48,12 @@
   border-radius: 3px;
   font-size: 13px;
   padding: 10px 30px;
-  width: 145px;
+  width: fit-content;
   height: 35px;
   border: none;
   color: #fff;
   background-color: #FC6C04;
-  transition: background-color .25s ease,color .25s ease;
+  transition: background-color .25s ease, color .25s ease;
   text-decoration: none;
   text-align: center;
   text-justify: center;
@@ -63,11 +62,25 @@
   overflow: visible;
 }
 
-.view-fav-button:hover  {
+.view-fav-button:hover {
   background-color: #fe8026;
 }
 
-@media screen and (max-width: 75em) {
+@media screen and (max-width: 57em) {
+  .saved-meme-wrapper {
+    justify-content: space-between;
+  }
+
+  .saved-meme {
+    width: 45%;
+  }
+
+  .fav-icon {
+    top: .7vh;
+    right: 3vw;
+    height: 2.5vh;
+  }
+
   .view-fav-button {
     font-size: 10px;
     width: 100px;
@@ -76,7 +89,19 @@
   }
 }
 
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 30em) {
+  .saved-meme {
+    width: 75%;
+  }
+
+  .saved-meme-wrapper {
+    justify-content: center;
+  }
+
+  .fav-icon {
+    right: 4.25vw;
+  }
+
   .view-fav-button {
     font-size: 8px;
     width: 75px;
@@ -84,4 +109,3 @@
     padding: 5px;
   }
 }
-
