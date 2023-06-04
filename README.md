@@ -1,6 +1,6 @@
 ## About 🔨 
 
-First things first, **The Meme Depot** is not authorized by, nor in any way officially connected, associated, or affiliated with The Home Depot. Tenuous legality aside, Home Depot is a web-based application designed to help dads and dad joke-afficianados find new material for their tight five. Users can choose from a selection of 19 dad-centric template images and from a seemingly-endless supply of dad jokes, combining them to create a custom meme of their choosing. The Meme Depot aims to spread wholesome, corny joy, one dad joke at a time. 
+First things first, **The Meme Depot** is not authorized by, nor in any way officially connected, associated, or affiliated with The Home Depot. Tenuous legality aside, The Meme Depot is a web-based application designed to help dads and dad joke-afficianados find new material for their tight five. Users can choose from a selection of 18 dad-centric template images and from a seemingly-endless supply of dad jokes, combining them to create a custom meme of their choosing. The Meme Depot aims to spread wholesome, corny joy, one dad joke at a time. 
 
 ---
 
